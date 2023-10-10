@@ -18,39 +18,46 @@ public class Driver {
             resultWriter = new FileWriter(results);
             resultWriter.write(getHTMLHead());
 
-            for(int i = 0; i < testCases.size(); i++) {
-                input = new File("testCases/in/" + i);
-                output = new File("testCases/out/" + i);
-                input.createNewFile();
-                output.createNewFile();
-
-                Map<String, String> data = testCases.get(i);
-                String ticketNum = data.get("ticket");
-                String rowNum = data.get("row");
-                String seatType = data.get("seat");
-                String params = String.format("%s %s %s", ticketNum, rowNum, seatType);
-
-                if (rowNum.equals("6")) {
-                    int x = 0;
-                }
-
-                fileWriter = new FileWriter(input);
-                fileWriter.write(params);
-                fileWriter.close();
+            for (int x = 0; x < 2; x++) {
+                for( int i = 0; i < testCases.size(); i++) {
+                    int caseNum = i + (x * testCases.size());
+                    if (caseNum == 72) {
+                        break;
+                    }
+                    input = new File("testCases/in/" + (caseNum+1));
+                    output = new File("testCases/out/" + (caseNum+1));
+                    input.createNewFile();
+                    output.createNewFile();
     
-                boolean passed = runProgram(input.getPath(), output.getPath());
-                
-                Scanner s = new Scanner(output);
-                String actual = "pass";
-                String expected = "pass";
-                if (data.get("valid").equals("I") || data.get("valid").equals("B") && seatType.equals("M")) {
-                    expected = "fail";
+                    Map<String, String> data = testCases.get(i);
+                    String ticketNum = data.get("ticket");
+                    String rowNum = data.get("row");
+                    String seatType = data.get("seat");
+                    String params = String.format("%s %s %s", ticketNum, rowNum, seatType);
+                    if (x == 1) {
+                        params += "\n" + params;
+                    }
+    
+                    fileWriter = new FileWriter(input);
+                    fileWriter.write(params);
+                    fileWriter.close();
+        
+                    String actual = runProgram(input.getPath(), output.getPath());
+                    if (actual.equals("pass")) {
+                        Scanner s = new Scanner(output);
+                        String firstLine = s.nextLine();
+                        if (!firstLine.equals("")) {
+                            actual = firstLine;
+                        }
+                        s.close();
+                    }
+
+                    String expected = "pass";
+                    if (data.get("valid").equals("I") || data.get("valid").equals("B") && seatType.equals("M") || x == 1) {
+                        expected = "fail";
+                    }
+                    resultWriter.write(createHTMLRow(caseNum+1, ticketNum, rowNum, seatType, expected, actual));
                 }
-                if (!passed || !s.nextLine().equals("")) {
-                    actual = "fail";
-                }
-                resultWriter.write(createHTMLRow(i, ticketNum, rowNum, seatType, expected, actual));
-                s.close();
             }
 
             resultWriter.write(getHTMLFoot());
@@ -61,7 +68,7 @@ public class Driver {
         }
     }
 
-    private boolean runProgram(String input, String output) {
+    private String runProgram(String input, String output) {
         try {
             File file = new File("/bin/SeatAssignmentDecisionTableAssignment.class");
             URLClassLoader classLoader = new URLClassLoader(new URL[]{file.toURI().toURL()});
@@ -74,10 +81,9 @@ public class Driver {
         } catch (Exception e) {
             // something went wrong..
             e.printStackTrace();
-            System.out.println(input);
-            return false;
+            return e.getCause().getMessage();
         }
-        return true;
+        return "pass";
     }
 
     private ArrayList<Map<String, String>> generateTestCases() {
@@ -86,7 +92,6 @@ public class Driver {
         char[] sections = new char[]{'B', 'E', 'I'};
         char[] seatTypes = new char[]{'W', 'M', 'A'};
 
-        String params = "";
         for (char section : sections) {
             for (char seatType : seatTypes) {
                 for (int seatNum = 1; seatNum < 7; seatNum++) {
