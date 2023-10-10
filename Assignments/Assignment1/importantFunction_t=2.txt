@@ -1,0 +1,143 @@
+# ACTS Test Suite Generation: Wed Sep 20 21:14:47 CDT 2023
+#  "(don't care)" represents don't care value 
+# Degree of interaction coverage: 2
+# Number of parameters: 4
+# Maximum number of values per parameter: 5
+# Number of configurations: 15
+------------Test Cases--------------
+
+Configuration #1:
+
+1 = pressure=5
+2 = volume=300
+3 = velocity=1
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #2:
+
+1 = pressure=10
+2 = volume=400
+3 = velocity=1
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #3:
+
+1 = pressure=15
+2 = volume=200
+3 = velocity=1
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #4:
+
+1 = pressure=5
+2 = volume=400
+3 = velocity=2
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #5:
+
+1 = pressure=10
+2 = volume=200
+3 = velocity=2
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #6:
+
+1 = pressure=15
+2 = volume=300
+3 = velocity=2
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #7:
+
+1 = pressure=5
+2 = volume=200
+3 = velocity=3
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #8:
+
+1 = pressure=10
+2 = volume=300
+3 = velocity=3
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #9:
+
+1 = pressure=15
+2 = volume=400
+3 = velocity=3
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #10:
+
+1 = pressure=5
+2 = volume=200
+3 = velocity=4
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #11:
+
+1 = pressure=10
+2 = volume=300
+3 = velocity=4
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #12:
+
+1 = pressure=15
+2 = volume=400
+3 = velocity=4
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #13:
+
+1 = pressure=5
+2 = volume=200
+3 = velocity=5
+4 = lowFuel=true
+
+-------------------------------------
+
+Configuration #14:
+
+1 = pressure=10
+2 = volume=300
+3 = velocity=5
+4 = lowFuel=false
+
+-------------------------------------
+
+Configuration #15:
+
+1 = pressure=15
+2 = volume=400
+3 = velocity=5
+4 = lowFuel=false
+
+-------------------------------------
+

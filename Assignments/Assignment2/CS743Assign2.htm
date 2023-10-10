@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C-S 743 - Software Verification</title>
+<style type="text/css">
+.style1 {
+	font-size: medium;
+	margin-left: 40px;
+}
+.style2 {
+	text-align: center;
+}
+.style3 {
+	text-align: center;
+	color: #FF0000;
+}
+.style4 {
+	font-size: medium;
+}
+.style5 {
+	margin-left: 40px;
+}
+.auto-style1 {
+	text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="style2">C-S 743 - Software Verification and Validation</h1>
+<h1 class="style2">Fall 2023</h1>
+<h1 class="style2">Assignment 2</h1>
+<h1 class="style3">Due on or before October 13, 2023 (Friday)</h1>
+<hr>
+<p><br>
+<span class="style4">For the following problem, generate black-box test cases 
+using Decision Table method. Test the given 
+program using these test cases. </span></p>
+<p class="style4">The software enables a passenger to select a seat in an 
+airplane. The plane has 25 rows (numbered 1 to 25). The rows 1 to 6 are reserved 
+for Business Class passengers and has 4 seats in each row. Each seat has a seat 
+type defined as follows:</p>
+<p class="style4">W A A W</p>
+<p class="style4">where 'W' stands for Window seat and 'A' stands for Aisle 
+seat. The rest of the 19 rows are meant for Economy Class passengers and has 6 
+seats in each row. The seat arrangements in these rows are as follows:</p>
+<p class="style4">W M A A M W</p>
+<p class="style4">where, once again, 'W' stands for Window seat and 'A' stands 
+for Aisle seat; 'M' stands for Middle seat. </p>
+<p class="style4">&nbsp;</p>
+<p class="style4">For seat selection, the passenger must input three 
+parameters: </p>
+<ol>
+	<li class="style4">A ticket number (ranging from 1001 to 1138, both 
+	inclusive) -Ticket numbers 1001 to 1024 are reserved for Business Class 
+	passengers and the ticket numbers 1025 to 1138 are meant for Economy Class 
+	passengers.</li>
+	<li class="style4">Row number (ranging from 1 to 25, both inclusive) </li>
+	<li class="style4">Seat type (a character 'W', 'A' or 'M') </li>
+</ol>
+<p>If the parameters are all valid and if the selected seat is not reserved 
+before, the software assigns the seat for this ticket number.
+<span class="auto-style1">Some examples</span> of invalid seat selections are as 
+follows:</p>
+<ul>
+	<li>A Business Class passenger requests for a Middle seat.</li>
+	<li>Both Window seats in a particular row are already selected by other 
+	passengers and a passenger wants a Window seat on the same row.</li>
+	<li>An Economy Class passenger requests for a seat in one of the first 6 
+	rows - remember that these rows are reserved for Business Class passengers.</li>
+</ul>
+<p>The software displays the current seat assignments after all seat selection 
+requests are done.</p>
+<p><a href="SeatAssignmentDecisionTableAssignment.class">Click here</a> to get the program for this problem. The 
+program is written in Java. Install Java run-time environment on your machine if 
+it is not already installed. You should run the program from the command line 
+using the following command:</p>
+<p class="style5">java SeatAssignmentDecisionTableAssignment &lt;input file name&gt; &lt;output file name&gt;</p>
+<p>The input file should contain the three input parameters in that order 
+separated by spaces. The output file will be a text file which will contain the 
+results. You should extract the output from this file and use it for your 
+report.</p>
+<p><strong>Submission</strong></p>
+<p>You must submit the report which includes (1) the decision table, and (3) the result of 
+your testing process in the following format:</p>
+<table id="table1" width="100%" border="1">
+	<tbody><tr>
+		<td rowspan="2" align="center"><font size="4">Test case #</font></td>
+		<td colspan="3" align="center"><font size="4">Input Parameters</font></td>
+		<td rowspan="2" align="center"><font size="4">Expected Output</font></td>
+		<td rowspan="2" align="center"><font size="4">Actual Output</font></td>
+	</tr>
+	<tr>
+		<td align="center">Ticket number</td>
+		<td align="center">Row number</td>
+		<td align="center">Seat type</td>
+	</tr>
+</tbody></table>
+<p>Notice that the actual output must be EXACTLY the same as displayed by the 
+program, and not in your own terms.</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+</body></html>
